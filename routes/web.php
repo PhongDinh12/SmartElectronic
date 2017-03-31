@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+Auth::routes();
+Route::get('/home', 'HomeController@index');
+
 // admin route 
 Route::get('admin/login', ['as'  => 'getlogin', 'uses' =>'Admin\AuthController@showLoginForm']);
 Route::post('admin/login', ['as'  => 'postlogin', 'uses' =>'Admin\AuthController@login']);
@@ -44,3 +48,4 @@ Route::group(['middleware' => 'admin'], function () {
     	});
     });
 });
+
