@@ -51,6 +51,45 @@ Route::get('/', ['as'  => 'index', 'uses' =>'PagesController@index']);
            Route::get('/{loai}/edit/{id}',['as'  =>'geteditpro','uses' => 'ProductsController@getedit'])->where('id','[0-9]+');
            Route::post('/{loai}/edit/{id}',['as' =>'posteditpro','uses' => 'ProductsController@postedit'])->where('id','[0-9]+');
       });
-    });
+        // -------------------- quan ly danh muc-----------------------------
+        Route::group(['prefix' => '/news'], function() {
+           Route::get('/add',['as'        =>'getaddnews','uses' => 'NewsController@getadd']);
+           Route::post('/add',['as'       =>'postaddnews','uses' => 'NewsController@postadd']);
+
+           Route::get('/',['as'       =>'getnews','uses' => 'NewsController@getlist']);
+           Route::get('/del/{id}',['as'   =>'getdellnews','uses' => 'NewsController@getdel'])->where('id','[0-9]+');
+           
+           Route::get('/edit/{id}',['as'  =>'geteditnews','uses' => 'NewsController@getedit'])->where('id','[0-9]+');
+           Route::post('/edit/{id}',['as' =>'posteditnews','uses' => 'NewsController@postedit'])->where('id','[0-9]+');
+      });
+        // -------------------- quan ly đơn đặt hàng--------------------
+        Route::group(['prefix' => '/donhang'], function() {;
+
+           Route::get('',['as'       =>'getpro','uses' => 'OdersController@getlist']);
+           Route::get('/del/{id}',['as'   =>'getdeloder','uses' => 'OdersController@getdel'])->where('id','[0-9]+');
+           
+           Route::get('/detail/{id}',['as'  =>'getdetail','uses' => 'OdersController@getdetail'])->where('id','[0-9]+');
+           Route::post('/detail/{id}',['as' =>'postdetail','uses' => 'OdersController@postdetail'])->where('id','[0-9]+');
+      });
+        // -------------------- quan ly thong tin khach hang--------------------
+        Route::group(['prefix' => '/khachhang'], function() {;
+
+           Route::get('',['as'       =>'getmem','uses' => 'UsersController@getlist']);
+           Route::get('/del/{id}',['as'   =>'getdelmem','uses' => 'UsersController@getdel'])->where('id','[0-9]+');
+           
+           Route::get('/edit/{id}',['as'  =>'geteditmem','uses' => 'UsersController@getedit'])->where('id','[0-9]+');
+           Route::post('/edit/{id}',['as' =>'posteditmem','uses' => 'UsersController@postedit'])->where('id','[0-9]+');
+      });
+       // -------------------- quan ly thong nhan vien--------------------
+        Route::group(['prefix' => '/nhanvien'], function() {;
+
+           Route::get('',['as'       =>'getnv','uses' => 'Admin_usersController@getlist']);
+           Route::get('/del/{id}',['as'   =>'getdelnv','uses' => 'Admin_usersController@getdel'])->where('id','[0-9]+');
+           
+           Route::get('/edit/{id}',['as'  =>'geteditnv','uses' => 'Admin_usersController@getedit'])->where('id','[0-9]+');
+           Route::post('/edit/{id}',['as' =>'posteditnv','uses' => 'Admin_usersController@postedit'])->where('id','[0-9]+');
+      });
+      // ---------------van de khac ----------------------
+    });     
 // });
 

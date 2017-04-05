@@ -11,7 +11,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Product extends Model
+class Products extends Model
 {
     protected $table ='products';
     protected $guarded =[];
@@ -26,7 +26,7 @@ class Product extends Model
 
     }
     public function oders_detail(){
-        return $this->hasOne('App\Oder_details','pro_id');
+        return $this->hasOne('App\Oders_detail','pro_id');
     }
 
 }
