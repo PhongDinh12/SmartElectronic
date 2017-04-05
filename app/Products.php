@@ -26,7 +26,7 @@ class Products extends Model
 
     }
     public function oders_detail(){
-        return $this->hasOne('App\Oder_details','pro_id');
+        return $this->hasOne('App\Oders_detail','pro_id');
     }
 
 }
