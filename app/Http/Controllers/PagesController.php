@@ -8,11 +8,12 @@ use App\Http\Requests;
 use Auth;
 use App\Products;
 use App\Category;
-use App\Pro_detail;
+use App\Pro_details;
 use App\News;
 use App\Oders;
 use App\Oders_detail;
-use DB,Cart,Datetime;
+use DB,Datetime;
+use Gloudemans\Shoppingcart\Cart;
 
 class PagesController extends Controller
 {
